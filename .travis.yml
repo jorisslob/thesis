@@ -1,5 +1,6 @@
 install:
   - sudo apt-get install texlive-latex-base texlive-latex-recommended
+  - sudo apt-get install texlive-latex-extra
 
 script:
   - source ./build.sh
