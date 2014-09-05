@@ -31,6 +31,7 @@
 
 \usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 \usepackage{makeidx}
+\usepackage{appendix}
 \makeindex
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
@@ -79,38 +80,34 @@ klokke ... uur}
 \authornames
 
 \large \textit{geboren te Oud-Beijerland in 1978}
-
-%\textsc{\LARGE \univname}\\[1.5cm] % University name
-%\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
-%
-%\HRule \\[0.4cm] % Horizontal line
-%{\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
-%\HRule \\[1.5cm] % Horizontal line
- 
-%\begin{minipage}{0.4\textwidth}
-%\begin{flushleft} \large
-%\emph{Author:}\\
-%\authornames % Author name - remove the \href bracket to remove the link
-%\end{flushleft}
-%\end{minipage}
-%\begin{minipage}{0.4\textwidth}
-%\begin{flushright} \large
-%\emph{Supervisor:} \\
-%\href{http://www.liacs.nl/~fverbeek}{\supname} % Supervisor name - remove the \href bracket to remove the link  
-%\end{flushright}
-%\end{minipage}\\[3cm]
-% 
-%\large \textit{A thesis submitted in fulfilment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
-%\textit{in the}\\[0.4cm]
-%\groupname\\\deptname\\[2cm] % Research group name and department name
- 
-%{\large \today}\\[4cm] % Date
-%\includegraphics{Logo} % University/department logo - uncomment to place it
  
 \vfill
 \end{center}
 
 \end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	PROMOTIECOMMISSIE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+PROMOTIECOMMISSIE
+
+\textit{Promotor}\\
+Prof. dr. J.N. Kok
+
+\textit{Copromotor}\\
+Dr. Ir. F.J. Verbeek
+
+\textit{Overige Leden}\\
+?\\
+?\\
+?\\
+?
+\vfill
+This research was supported by the Cyttron project
+\end{titlepage}
+
 
 %----------------------------------------------------------------------------------------
 %	DEDICATION
@@ -225,7 +222,7 @@ Eponine de Beer (7 jaar)
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
-\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+\begin{appendices} % Cue to tell LaTeX that the following 'chapters' are Appendices
 
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
@@ -234,6 +231,7 @@ Eponine de Beer (7 jaar)
 %\input{Appendices/AppendixB}
 %\input{Appendices/AppendixC}
 
+\end{appendices}
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
 \backmatter
@@ -306,5 +304,14 @@ Sietske, you have been extremely patient and helped to motivate me
 when the going was tough. A lot hapened in the time I was working on
 this thesis, but we got through it together.
 }
+
+%----------------------------------------------------------------------------------------
+%	CURRICULUM VITAE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\chapter{Curriculum vitae}
+CV of Joris Slob
+\end{titlepage}
 
 \end{document}  
