@@ -113,18 +113,18 @@ else
     echo "Universiteit Leiden not found in the Thesis."
     exit 1
 fi
-if grep "Bachelor of Science" Thesis.txt
+if grep "BSc" Thesis.txt
 then
-    echo "Bachelor of Science found in the Thesis"
+    echo "BSc found in the Thesis"
 else
-    echo "Bachelor of Science not found in the Thesis."
+    echo "BSc not found in the Thesis."
     exit 1
 fi
-if grep "Master of Science" Thesis.txt
+if grep "MSc" Thesis.txt
 then
-    echo "Master of Science found in the Thesis"
+    echo "MSc found in the Thesis"
 else
-    echo "Master of Science not found in the Thesis."
+    echo "MSc not found in the Thesis."
     exit 1
 fi
 if grep "Media Technology" Thesis.txt
@@ -132,13 +132,6 @@ then
     echo "Media Technology found in the Thesis"
 else
     echo "Media Technology not found in the Thesis."
-    exit 1
-fi
-if grep "RSG" Thesis.txt
-then
-    echo "RSG found in the Thesis"
-else
-    echo "RSG not found in the Thesis."
     exit 1
 fi
 if grep "Zest Software" Thesis.txt
