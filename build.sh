@@ -82,3 +82,76 @@ else
     echo "Curriculum vitae was not found in the Thesis."
     exit 1
 fi
+
+# Article 17.2: This curriculum vitae should state:
+# a. date of birth,
+# b. place of birth,
+# c. the period of pre-university education or its equivalent and the
+#    institutions where this was followed,
+# d. any qualifications pertaining to the diplomas obtained,
+# e. details of professional duties after completing the academic education,
+#    and
+# f. if appropriate, the institute at which the PhD research was conducted.
+if grep "9 mei 1978" Thesis.txt
+then
+    echo "Date of birth found in the Thesis"
+else
+    echo "Date of birth not found in the Thesis."
+    exit 1
+fi
+if grep "Oud-Beijerland" Thesis.txt
+then
+    echo "Place of birth found in the Thesis"
+else
+    echo "Place of birth not found in the Thesis."
+    exit 1
+fi
+if grep "Universiteit Leiden" Thesis.txt
+then
+    echo "Universiteit Leiden found in the Thesis"
+else
+    echo "Universiteit Leiden not found in the Thesis."
+    exit 1
+fi
+if grep "Bachelor of Science" Thesis.txt
+then
+    echo "Bachelor of Science found in the Thesis"
+else
+    echo "Bachelor of Science not found in the Thesis."
+    exit 1
+fi
+if grep "Master of Science" Thesis.txt
+then
+    echo "Master of Science found in the Thesis"
+else
+    echo "Master of Science not found in the Thesis."
+    exit 1
+fi
+if grep "Media Technology" Thesis.txt
+then
+    echo "Media Technology found in the Thesis"
+else
+    echo "Media Technology not found in the Thesis."
+    exit 1
+fi
+if grep "RSG" Thesis.txt
+then
+    echo "RSG found in the Thesis"
+else
+    echo "RSG not found in the Thesis."
+    exit 1
+fi
+if grep "Zest Software" Thesis.txt
+then
+    echo "Zest Software found in the Thesis"
+else
+    echo "Zest Software not found in the Thesis."
+    exit 1
+fi
+if grep "RMPI" Thesis.txt
+then
+    echo "RMPI found in the Thesis"
+else
+    echo "RMPI not found in the Thesis."
+    exit 1
+fi
