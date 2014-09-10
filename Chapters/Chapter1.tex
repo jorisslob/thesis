@@ -13,39 +13,63 @@
 \section{General Overview}
 
 The scientific method \index{Scientific method} relies on the
-generation of measurements \index{Measurements}. For reproducability
+generation of measurements\index{Measurements}. For reproducability
 \index{Reproducability} measurements should be reported in such a way
 that other scientist can replicate the results.
 
-Reproducable Research (Sergey Fomel and Jon Claerbout, Guest Editor's
-Introduction: Reproducable Research doi:10.1109/MCSE.2009.14)
-\index{Reproducable Research}.
+Within computational science the ability to replicate results is
+called Reproducable Research\index{Reproducable
+  research}\cite{FomelReproducibleResearch}. For the Life
+Sciences\index{Life science} this approach is more problematic,
+because of the enormous amount of parameters in any given
+experiment. A simple workflow\index{Workflow} might look like this:
 
-Will semantic metadata improve sharing, verifying and repurposing
-microscopy images from the life sciences?
+\begin{itemize}
+\item Preperation of sample\index{Sample preperation}
+\item Microscopy on sample\index{Microscopy}
+\item Image analysis\index{Image analysis}
+\item Statistical analysis\index{Statistical analysis}
+\end{itemize}
+
+Each of these steps deserve a methods page on their own, yet papers
+need to communicate their findings succinctly. When there is no room
+for in the papers for the provenance\index{Provenance} information,
+this information has to stored next to or inside the data itself.
+
+In this thesis I will explore the questions how we can capture, store
+and leverage this metadata\index{Metadata}, especially in the area of
+microscopy images\index{Microscopy images}.
+
 
 \subsection{Contextual information}
 
-When talking about microscopy images, it is not enough to just share
-the pixels of the image. Without contextual information the data is
-useless.
+When talking about microscopy images\index{Microscopy images}, it is
+not enough to just share the pixels\index{Pixels} of the
+image. Without contextual information\index{Contextual information}
+the data is useless.
 
 How do we measure the quality of the contextual information of a
 microscope image? To get an answer, we take three steps:
 \begin{itemize}
-\item Analytical decomposition of the pipeline of data acquisition in
-  microscopy science.
-\item Survey experimental biologists, bio-informaticians, theoretical
-  biologists and medical experts.
-\item Check existing image repositories for their metadata.
+\item Analytical decomposition\index{Analytical decomposition} of the
+  pipeline\index{pipeline} of data acquisition\index{Data acquisition}
+  in microscopy science\index{Microscopy science}.
+\item Survey experimental biologists\index{Experimental biologist},
+  bio-informaticians\index{Bio-informatician}, theoretical
+  biologists\index{Theoretical biologist} and medical
+  experts\index{Medical expert}.
+\item Check existing image repositories\index{Image repository} for
+  their metadata\index{Metadata}.
 \end{itemize}
 
 I assume the following elements need to be described:
 \begin{itemize}
-\item Biological origin: Species/Cell culture (including age), Anatomy
-  structures
-\item Chemical and physical conditions
-\item Imaging techniques
+\item Biological origin\index{Biological origin}:
+  Species\index{Species}/Cell culture\index{Cell culture} (including
+  age), Anatomy structures\index{Anatomy structures}
+\item Chemical and physical conditions\index{Chemical
+  conditions}\index{Physical conditions}
+\item Imaging techniques\index{Imaging techniques}
 \end{itemize}
 
 %------------------------------------------------------------------------------
@@ -65,16 +89,18 @@ into the semantic web.
 
 \subsection{Semantic Web}
 
-This section describes the Semantic Web idea and its main
-technologies. What are the restrictions, what can we expect?
+This section describes the Semantic Web\index{Semantic web} idea and
+its main technologies. What are the restrictions, what can we expect?
 
 The Semantic Web is a concept that revolves around the usage of
 different technologies. One of the most important languages used is
-that of OWL (Web Ontology Language). In this thesis we will be using
-the latest version of OWL at the time of writing, which is OWL 2. we
-will use Machester Syntax to describe the formal structure of our
-ontologies. Because we want full flexibility in our modeling, we will
-use OWL 2 Full by using RDF-based semantics.
+that of OWL (Web Ontology Language)\index{OWL}. In this thesis we will
+be using the latest version of OWL at the time of writing, which is
+OWL 2. we will use Manchester Syntax\index{Manchester Syntax} to
+describe the formal structure of our
+ontologies\index{Ontology}. Because we want full flexibility in our
+modeling\index{Modeling}, we will use OWL 2 Full by using RDF-based
+semantics\index{RDF}\index{semantics}.
 
 
 
@@ -84,10 +110,12 @@ use OWL 2 Full by using RDF-based semantics.
 
 \section{Annotation and Retrieval}
 
-This section will provide information about annotation of other
-resources, images in particular. The classical use for annotation is
-retrieval. Annotation may also be used for reasoning and pattern
-discovery.
+This section will provide information about
+annotation\index{Annotation} of other resources, images in
+particular. The classical use for annotation is
+retrieval\index{Retrieval}. Annotation may also be used for
+reasoning\index{Reasoning} and pattern discovery\index{Pattern
+  discovery}.
 
 %------------------------------------------------------------------------------
 %	Life Science Images
