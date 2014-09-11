@@ -11,7 +11,6 @@ rm Thesis.out
 rm Thesis.idx
 rm Thesis.ilg
 rm Thesis.ind
-rm Thesis.ps
-rm Thesis.dvi
+rm Thesis.brf
 rm Thesis.pdf
 rm Thesis.txt

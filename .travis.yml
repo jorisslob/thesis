@@ -1,6 +1,6 @@
 install:
   - sudo apt-get install texlive-latex-base texlive-latex-recommended
-  - sudo apt-get install texlive-latex-extra poppler-utils
+  - sudo apt-get install texlive-latex-extra poppler-utils rubber
 
 script:
   - source ./build.sh

@@ -1,14 +1,11 @@
 #!/bin/bash
 
+######################
 # Generate the Thesis
-latex Thesis.tex
-bibtex Thesis
-makeindex Thesis.idx
-latex Thesis.tex
-latex Thesis.tex
-dvipdf Thesis.dvi
-pdftotext Thesis.pdf
+######################
 
+rubber --pdf Thesis.tex
+pdftotext Thesis.pdf
 
 # Article 13.6: In principle, the dissertation should not exceed
 # 100,000 words.  On behalf of the Doctorate Board, the Dean may allow
