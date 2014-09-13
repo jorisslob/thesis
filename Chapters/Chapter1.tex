@@ -45,20 +45,68 @@ microscopy images\index{Microscopy images}.
 
 When talking about microscopy images\index{Microscopy images}, it is
 not enough to just share the pixels\index{Pixels} of the
-image. Without contextual information\index{Contextual information}
-the data is useless.
+image. Without contextual
+information\index{Contextual~information|textbf} the data is useless.
 
 How do we measure the quality of the contextual information of a
-microscope image? To get an answer, we take three steps:
+microscope image? To get an answer, we take four steps:
 \begin{itemize}
-\item Analytical decomposition\index{Analytical decomposition} of the
+\item Analytical decomposition\index{Analytical~decomposition} of the
   pipeline\index{Pipeline} of data acquisition\index{Data acquisition}
   in microscopy science\index{Microscopy science}.
 \item Survey experimental biologists, bio-informaticians, theoretical
   biologists and medical experts.
 \item Check existing image repositories\index{Image!Repository} for
   their metadata\index{Metadata}.
+\item Check existing metadata\index{Metadata} schemas\index{Schema}
 \end{itemize}
+
+\subsubsection{Analytical decomposition}
+
+The Analytical decomposition
+step\index{Analytical~decomposition|textbf} is performed by taking a
+step backwards and providing an abstract description of the
+process. For this process we use an upper
+ontology\index{Upper~Ontology|see{Ontology,~Upper}}\index{Ontology!Upper}
+to help guide the abstract description. Guided by an overview of upper
+ontologies\cite{mascardi2007comparison}, we decided to use the
+BFO\cite{grenon2004biodynamic} as our upper ontology, because of its
+small size and the research focused design.
+\begin{displaymath}
+  \xymatrix{\text{Sample} \ar[d] \ar[r] & \text{Microscope} \ar[d]
+    \ar[r] & \text{Image} \ar[r] & \text{Computer} \ar[d] \ar[r] &
+    \text{Data} \\ \text{Biological process} & \text{Physical
+      interaction} & & \text{Computation} & }
+\end{displaymath}
+A sample\index{Sample} could be considered both an
+object\index{Object} and an
+object\_aggregate\index{Object~aggregate}. Because of this dual nature
+we will model it as a material\_entity\index{Material~entity}, which
+is the superclass of both. A microscope\index{Microscope} and a
+computer\index{Computer} are subclasses of
+object\index{Object}. Image\index{Image} and data\index{Data} are
+subclass of
+generically\_dependent\_continuant\index{Generically~dependent~continuant}.
+
+Biological process, physical interaction and computation can all be
+considered to be subclasses of process.
+
+\subsubsection{Survey experts}
+
+Survey\index{Survey|textbf} experimentalists, analysts and modelers
+what the important knowledge is in their domain.
+
+\subsubsection{Existing image repositories}
+
+Examine the existing image repositories\index{Image!Repository} and
+their choices in the metadata\index{Metadata} they include.
+
+\subsubsection{Existing metadata schemas}
+
+Check existing metadata schemas\index{Schema|textbf}. This includes
+image formats\index{Image!Format} and ontologies\index{Ontology}.
+
+\subsection{Assumed important elements}
 
 I assume the following elements need to be described:
 \begin{itemize}
@@ -78,9 +126,9 @@ I assume the following elements need to be described:
 
 This section describes the main technology that is used to arive at
 new insights. What do I mean when I talk about
-semantics\index{Semantics} and reasoning\index{Reasoning}? This
-describes the larger field, with a subsection delving into the
-semantic web\index{Semantic web}.
+semantics\index{Semantics|textbf} and
+reasoning\index{Reasoning|textbf}? This describes the larger field,
+with a subsection delving into the semantic web\index{Semantic web}.
 
 %-----------------------------------
 %	Semantic Web
@@ -88,8 +136,9 @@ semantic web\index{Semantic web}.
 
 \subsection{Semantic Web}
 
-This section describes the Semantic Web\index{Semantic web} idea and
-its main technologies. What are the restrictions, what can we expect?
+This section describes the Semantic Web\index{Semantic web|textbf}
+idea and its main technologies. What are the restrictions, what can we
+expect?
 
 The Semantic Web is a concept that revolves around the usage of
 different technologies. One of the most important languages used is
@@ -110,9 +159,9 @@ semantics\index{RDF}\index{Semantics}.
 \section{Annotation and Retrieval}
 
 This section will provide information about
-annotation\index{Annotation} of other resources, images in
+annotation\index{Annotation|textbf} of other resources, images in
 particular. The classical use for annotation is
-retrieval\index{Retrieval}. Annotation may also be used for
+retrieval\index{Retrieval|textbf}. Annotation may also be used for
 reasoning\index{Reasoning} and pattern discovery\index{Pattern
   discovery}.
 
@@ -122,9 +171,9 @@ reasoning\index{Reasoning} and pattern discovery\index{Pattern
 
 \section{Life Science Images}
 
-Life Science Images\index{Life science images} are images that are
-taken in research from the Life Sciences. These range from brightfield
-microscopy\index{Brightfield~microscope} to atomic force
+Life Science Images\index{Life science images|textbf} are images that
+are taken in research from the Life Sciences. These range from
+brightfield microscopy\index{Brightfield~microscope} to atomic force
 microscopy\index{Atomic force microscope}.
 
 %-----------------------------------
@@ -133,15 +182,15 @@ microscopy\index{Atomic force microscope}.
 
 \subsection{Developmental biology and model organisms}
 
-Developmental biology\index{Developmental biology} is the study of
-developing organisms. From embryo\index{Embryo|see{Stage,
+Developmental biology\index{Developmental biology|textbf} is the study
+of developing organisms. From embryo\index{Embryo|see{Stage,
     Embryo}}\index{Stage!Embryo} to
 adolescent\index{Adolescent|see{Stage,
     Adolescent}}\index{Stage!Adolescent}, the body goes through a lot
 of changes. To study growth patterns and the way growth can be
-disrupted by various factors, model organisms\index{Model organisms}
-are used. Examples of model organisms are: fruit flies, zebrafish,
-mice and monkeys.
+disrupted by various factors, model organisms\index{Model
+  organisms|textbf} are used. Examples of model organisms are: fruit
+flies, zebrafish, mice and monkeys.
 
 %-----------------------------------
 %	Image Acquisition in the Life Sciences
@@ -149,7 +198,7 @@ mice and monkeys.
 
 \subsection{Image Acquisition in the Life Sciences}
 
-Image Acquisition in the Life Sciences is done using specialized
-microscopes. From the regular brightfield
+Image Acquisition\index{Image!Acquisition|textbf} in the Life Sciences
+is done using specialized microscopes. From the regular brightfield
 microscope\index{Brightfield~microscope} to FRAP (Fluorescence
 recovery after photobleaching)\index{FRAP}.
