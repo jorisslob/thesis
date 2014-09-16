@@ -4,7 +4,7 @@
 # Generate the Thesis
 ######################
 
-rubber --pdf Thesis.tex
+rubber --pdf -Wall Thesis.tex
 pdftotext Thesis.pdf
 
 # Article 13.6: In principle, the dissertation should not exceed
