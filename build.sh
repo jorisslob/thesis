@@ -1,35 +1,51 @@
 #!/bin/bash
 
 ######################
+# Utility Variables
+######################
+
+# Configure this
+FILEBASE="Thesis"
+NUMOFWORDS=6349
+
+# These will be automatically updated from the configuration
+SOURCE="${FILEBASE}.tex"
+DESTINATION="${FILEBASE}.pdf"
+TXTVERSION="${FILEBASE}.txt"
+ERRORS=0
+
+######################
 # Utility Functions
 ######################
 
+# Case insensitive search
 function search {
-    if grep -iq "$1" Thesis.txt
+    if grep -iq "$1" $TXTVERSION
     then
 	echo -e "$1 \e[32mfound\e[0m in the Thesis"
     else
 	echo -e "$1 \e[31mnot found\e[0m in the Thesis."
+	ERRORS+=1
     fi
 }
 
+# Case sensitive search
 function Search {
-    if grep -q "$1" Thesis.txt
+    if grep -q "$1" $TXTVERSION
     then
 	echo -e "$1 \e[32mfound\e[0m in the Thesis"
     else
 	echo -e "$1 \e[31mnot found\e[0m in the Thesis."
+	ERRORS+=1
     fi
 }
-
-
 
 ######################
 # Generate the Thesis
 ######################
 
-rubber --pdf -Wall Thesis.tex
-pdftotext Thesis.pdf
+rubber --pdf -Wall $SOURCE
+pdftotext $DESTINATION
 
 # Article 13.6: In principle, the dissertation should not exceed
 # 100,000 words.  On behalf of the Doctorate Board, the Dean may allow
@@ -37,10 +53,11 @@ pdftotext Thesis.pdf
 # candidate.
 echo
 echo "Checking number of words..."
-words=`pdftotext Thesis.pdf - | wc -w`
+words=`pdftotext ${DESTINATION} - | wc -w`
 if [ $words -gt 100000 ]
 then
     echo "$words words is \e[31mtoo much\e[0m, needs to be less than 100000."
+    ERRORS+=1
 else
     echo -e "$words words is \e[32mgood\e[0m"
 fi
@@ -48,7 +65,7 @@ fi
 # Thesis writing marathon addition!
 # At the start of the marathon I had 3895 words
 # This will keep track of the words written during this marathon
-echo "$(($words-5558)) words were written during the marathon"
+echo "$(($words-$NUMOFWORDS)) words were written during the marathon"
 
 # Article 16.1: The dissertation should contain a title page stating
 # the given names and family name of the author as registered at the
@@ -131,3 +148,8 @@ search "master"
 search "tables"
 search "privacy"
 search "legacy"
+
+echo
+echo "Errors detected: $ERRORS"
+echo
+exit $ERRORS
