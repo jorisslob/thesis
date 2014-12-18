@@ -74,7 +74,7 @@ BFO\cite{grenon2004biodynamic} as our upper ontology, because of its
 small size and the research focused design.
 \begin{displaymath}
   \xymatrix{ & \text{Biologist} \ar[dl] \ar[d] \ar[dr] \ar@{<->}[rr] &
-    & \text{Analist} \ar[dl] \ar[d] \ar[dr] & \\ \text{Sample} \ar[d]
+    & \text{Analyst} \ar[dl] \ar[d] \ar[dr] & \\ \text{Sample} \ar[d]
     \ar[r] & \text{Microscope} \ar[d] \ar[r] & \text{Image} \ar[r] &
     \text{Computer} \ar[d] \ar[r] & \text{Data} \\ \text{Biological
       process} & \text{Interaction} & & \text{Computation} & }
@@ -202,4 +202,99 @@ flies, zebrafish, mice and monkeys.
 Image Acquisition\index{Image!Acquisition|textbf} in the Life Sciences
 is done using specialized microscopes. From the regular brightfield
 microscope\index{Brightfield~microscope} to FRAP (Fluorescence
-recovery after photobleaching)\index{FRAP}.
+recovery after photobleaching)\index{FRAP}. To get an overview of the
+field we are going to split it up using some broad categories:
+optical, electron and force microscopy.
+
+\subsubsection{Optical microscopy}
+
+Optical microscopy is the domain of microscopy that uses photons as
+the main interaction particle with the sample. The simplest technique
+that could conceivably be called optical microscopy is observation of
+a sample by scanning it in with a flat-back scanner. The magnification
+in this case is not really realized with a lens system, but because
+the scanning device has more optical resolution than the human eye, we
+can still call this technique optical microscopy.
+
+The simplest system that has some form of optical magnification is a
+loupe. It also feels a bit like a stretch to call this a
+microscope. There seems to be a boundary on the magnification when
+something can be called microscopy or not, although this boundary is
+not well defined.
+
+The simplest device that is actually called a microscope in use today
+is a bright field microscope. In optical microscopy a lot of different
+microscopy techniques are named after the way the sample is
+illuminated. Bright field microscopy illuminates the sample from below
+and detects the light that transmits through the sample. The
+background, unhindered by any absorbing material is therefore bright
+in the image, hence the name bright field. [TODO: insert image]
+
+Dark field microscopy uses two apertures to filter out the direct
+light source, so only light diffracted by the sample appears in the
+image. With no diffractive medium, the image will be dark, hence the
+name dark field. [TODO: insert image]
+
+The difference between the two microscopes described above (the bright
+field and dark field microscopy) can also be described by a difference
+of the interaction being detected. In the case of bright field
+microscopy, the absorbance of the sample is visualized, while in the
+case of dark field microscopy, we observe the diffraction.
+
+Light waves can have a particular polarization. This phase information
+can be used in techniques such as phase contrast microscopy and
+differential interference contrast microscopy. [TODO: insert image]
+
+The matter can also interact energetically with the light. In this
+case the sample absorbs the photons of certain wavelengths and the
+molecules are excited. The excited molecules can then fall back to
+ground state, emitting photons of a higher wavelength. This process is
+called fluorescence. Direct measurement of fluorescence is called
+fluorescence microscopy, but there are other possibilities. Different
+dynamics of this excitation process lead to other observables used in
+FRET, PALM, STORM and TIRF [TODO: Check these techniques].
+
+Confocal microscopy uses double apertures to image a particular
+z-slice of a sample. [TODO: insert image]
+
+A common technique to use after optical microscopy is
+deconvolution. Optical signals are convoluted by optical distortions,
+which can be characterized mathematically and reversed. The process is
+computationally intensive, but leads to sharper images. This process
+requires a point spread function (PSF), which can be obtained by
+measurement or theoretical approximation. For the latter, information
+about the lenses is vital.
+
+\subsubsection{Electron microscopy}
+
+Electron microscopy uses electrons to probe the sample. These
+microscopes are often more expensive and harder to use than optical
+microscopes. The samples need special preparation with metal atoms and
+need to be in a vacuum chamber when imaging. These requirements rule
+out imaging of living samples.
+
+There are two main types of Electron microscopy: Scanning Electron
+microscopy and Transmission Electron microscopy. Scanning Electron
+microscopy images the reflection of electrons, while transmission
+electron microscopy images the transmission. [TODO: why use one or the other] [TODO: insert images]
+
+Electron microscopy is more precise than optical microscopy, because
+the DeBroglie wavelength of electrons is smaller than that of visible
+photons. At this resolution different problems might arise, like
+thermal noise. That is why some Electron microscopy experiments are
+done at extremely low temperatures to reduce this noise. This
+technique is usually called Cryo-EM.
+
+\subsubsection{Force microscopy}
+
+Another interaction that can be measured and imaged is atomic force
+microscopy. A sample is scanned by going over its surface with a
+pin. This pin can rise and fall as a spring pulls it downwards and the
+surface of the sample pushes it upwards. The motion of the pin is
+measured and in this way a height map of the surface can be made. This
+technique can achieve atomic resolution.
+
+\subsubsection{Other}
+
+[TODO: describe PET scanner]
+[TODO: describe X-Ray crystallography]
