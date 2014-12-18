@@ -5,6 +5,15 @@
 ######################
 
 function search {
+    if grep -iq "$1" Thesis.txt
+    then
+	echo -e "$1 \e[32mfound\e[0m in the Thesis"
+    else
+	echo -e "$1 \e[31mnot found\e[0m in the Thesis."
+    fi
+}
+
+function Search {
     if grep -q "$1" Thesis.txt
     then
 	echo -e "$1 \e[32mfound\e[0m in the Thesis"
@@ -12,6 +21,8 @@ function search {
 	echo -e "$1 \e[31mnot found\e[0m in the Thesis."
     fi
 }
+
+
 
 ######################
 # Generate the Thesis
@@ -45,14 +56,14 @@ echo "$(($words-4703)) words were written during the marathon"
 echo
 echo "Checking for required content in thesis..."
 echo
-search "Joris Slob"
+Search "Joris Slob"
 search "Index"
 
 # Article 16.2: In all cases, the names of the supervisor, the
 # co-supervisor and the other members of the PhD Committee are stated
 # on the reverse of the title page together with their functions.
-search "Prof. dr. J.N. Kok"
-search "Dr. Ir. F.J. Verbeek"
+Search "Prof. dr. J.N. Kok"
+Search "Dr. Ir. F.J. Verbeek"
 
 # Article 16.3: If so required and with the restraint customary for
 # acknowledgements in international scientific literature, the
@@ -75,14 +86,14 @@ search "Curriculum vitae"
 #    and
 # f. if appropriate, the institute at which the PhD research was conducted.
 search "9 mei 1978"
-search "Oud-Beijerland"
-search "Universiteit Leiden"
-search "BSc"
-search "MSc"
-search "Media Technology"
-search "Zest Software"
-search "RMPI"
-search "TOPdesk"
+Search "Oud-Beijerland"
+Search "Universiteit Leiden"
+Search "BSc"
+Search "MSc"
+Search "Media Technology"
+Search "Zest Software"
+Search "RMPI"
+Search "TOPdesk"
 
 ############################
 # Thesis scientific content 
@@ -93,27 +104,30 @@ echo "Scientific content"
 echo
 
 search "microscope"
-search "OWL"
+Search "OWL"
 search "server"
 search "client"
 search "spatial"
 search "temporal"
-search "user interface"
-search "SPARQL"
-search "observer pattern"
+search "user"
+search "interface"
+Search "SPARQL"
+search "observer"
+search "pattern"
 search "namespace"
 search "optical"
 search "electron"
-search "RDF"
-search "high throughput"
+Search "RDF"
+search "throughput"
 search "confocal"
 search "deconvolution"
-search "structural metadata"
-search "descriptive metadata"
-search "administrative metadata"
+search "structural"
+search "descriptive"
+search "administrative"
 search "my terms"
 search "ontology viewer"
-search "query interface"
-search "master tables"
+search "query"
+search "master"
+search "tables"
 search "privacy"
 search "legacy"
