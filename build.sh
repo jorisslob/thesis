@@ -1,6 +1,20 @@
 #!/bin/bash
 
 ######################
+# Utility Functions
+######################
+
+function search {
+    if grep -q "$1" Thesis.txt
+    then
+	echo -e "$1 \e[32mfound\e[0m in the Thesis"
+    else
+	echo -e "$1 \e[31mnot found\e[0m in the Thesis."
+	exit 1
+    fi
+}
+
+######################
 # Generate the Thesis
 ######################
 
@@ -11,74 +25,47 @@ pdftotext Thesis.pdf
 # 100,000 words.  On behalf of the Doctorate Board, the Dean may allow
 # this limit to be exceeded at the written request of the PhD
 # candidate.
+echo
+echo "Checking number of words..."
 words=`pdftotext Thesis.pdf - | wc -w`
 if [ $words -gt 100000 ]
 then
-    echo "$words words is too much, needs to be less than 100000."
+    echo "$words words is \e[31mtoo much\e[0m, needs to be less than 100000."
     exit 1
 else
-    echo "$words words is good"
+    echo -e "$words words is \e[32mgood\e[0m"
 fi
+
+# Thesis writing marathon addition!
+# At the start of the marathon I had 3895 words
+# This will keep track of the words written during this marathon
+echo "$(($words-3895)) words were written during the marathon"
 
 # Article 16.1: The dissertation should contain a title page stating
 # the given names and family name of the author as registered at the
 # Register Office, as well as an index and the required registers.
-if grep "Joris Slob" Thesis.txt
-then
-    echo "The name Joris Slob was found in the Thesis."    
-else
-    echo "The name Joris Slob was not found in the Thesis!"
-    exit 1    
-fi
-
-if grep "Index" Thesis.txt
-then
-    echo "An index was found in the Thesis."
-else
-    echo "No index was found in the Thesis!"
-    exit 1
-fi
+echo
+echo "Checking for required content in thesis..."
+echo
+search "Joris Slob"
+search "Index"
 
 # Article 16.2: In all cases, the names of the supervisor, the
 # co-supervisor and the other members of the PhD Committee are stated
 # on the reverse of the title page together with their functions.
-if grep "Prof. dr. J.N. Kok" Thesis.txt
-then
-    echo "Joost Kok was found in the Thesis."
-else
-    echo "Joost Kok was not found in the Thesis!"
-    exit 1
-fi
-if grep "Dr. Ir. F.J. Verbeek" Thesis.txt
-then
-    echo "Fons Verbeek was found in the Thesis."
-else
-    echo "Fons Verbeek was not found in the Thesis!"
-    exit 1
-fi
+search "Prof. dr. J.N. Kok"
+search "Dr. Ir. F.J. Verbeek"
 
 # Article 16.3: If so required and with the restraint customary for
 # acknowledgements in international scientific literature, the
 # institution which has financially supported or facilitated the
 # dissertation may be mentioned at the foot of the page as referred to
 # in paragraph 2.
-if grep "research was supported by the Cyttron project" Thesis.txt
-then
-    echo "Cyttron project was found in the Thesis."
-else
-    echo "Cyttron project was not found in the Thesis."
-    exit 1
-fi
+search "research was supported by the Cyttron project"
 
 # Article 17.1: A brief curriculum vitae of the author should be
 # included at the end of the dissertation.
-if grep "Curriculum vitae" Thesis.txt
-then
-    echo "Curriculum vitae was found in the Thesis."
-else
-    echo "Curriculum vitae was not found in the Thesis."
-    exit 1
-fi
+search "Curriculum vitae"
 
 # Article 17.2: This curriculum vitae should state:
 # a. date of birth,
@@ -89,59 +76,12 @@ fi
 # e. details of professional duties after completing the academic education,
 #    and
 # f. if appropriate, the institute at which the PhD research was conducted.
-if grep "9 mei 1978" Thesis.txt
-then
-    echo "Date of birth found in the Thesis"
-else
-    echo "Date of birth not found in the Thesis."
-    exit 1
-fi
-if grep "Oud-Beijerland" Thesis.txt
-then
-    echo "Place of birth found in the Thesis"
-else
-    echo "Place of birth not found in the Thesis."
-    exit 1
-fi
-if grep "Universiteit Leiden" Thesis.txt
-then
-    echo "Universiteit Leiden found in the Thesis"
-else
-    echo "Universiteit Leiden not found in the Thesis."
-    exit 1
-fi
-if grep "BSc" Thesis.txt
-then
-    echo "BSc found in the Thesis"
-else
-    echo "BSc not found in the Thesis."
-    exit 1
-fi
-if grep "MSc" Thesis.txt
-then
-    echo "MSc found in the Thesis"
-else
-    echo "MSc not found in the Thesis."
-    exit 1
-fi
-if grep "Media Technology" Thesis.txt
-then
-    echo "Media Technology found in the Thesis"
-else
-    echo "Media Technology not found in the Thesis."
-    exit 1
-fi
-if grep "Zest Software" Thesis.txt
-then
-    echo "Zest Software found in the Thesis"
-else
-    echo "Zest Software not found in the Thesis."
-    exit 1
-fi
-if grep "RMPI" Thesis.txt
-then
-    echo "RMPI found in the Thesis"
-else
-    echo "RMPI not found in the Thesis."
-    exit 1
-fi
+search "9 mei 1978"
+search "Oud-Beijerland"
+search "Universiteit Leiden"
+search "BSc"
+search "MSc"
+search "Media Technology"
+search "Zest Software"
+search "RMPI"
+search "TOPdesk"
