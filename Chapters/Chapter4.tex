@@ -12,7 +12,35 @@
 
 \section{Cyttron overview}
 The Cyttron Database\index{Cyttron database|textbf} is an image
-database that uses semantic keywords to annotate images.
+database that uses classes from ontologies to annotate microscopy
+images from the life sciences. When a user uploads an image to the
+database, this user is guided through a user interface that asks for
+classes to annotate this image and provide additional administrative
+metadata. The ontology classes form the descriptive part of the
+metadata. Most of the structural metadata can be extracted from the
+header of the image file that was uploaded.
+
+The Cyttron database covers a very broad subject area: the life
+sciences. This is much broader than comparable online databases [TODO:
+  add reference to cell centered image database and others]. No single
+ontology describes all the different views that our users might want
+to express. That is why the Cyttron database uses as many ontologies
+(first from OBO Foundry, now from BioPortal) as possible. Although the
+possibility of annotation is a lot larger, it becomes harder for the
+user to find the precise class he wants to use.
+
+To overcome the search problem, we have devised several user
+interfaces to help the user. Central in this assistance is the
+possibility for users to collect terms they use often in a
+personalized list called 'my terms'. Researchers often work for
+extended periods on a single subject and collect many images for the
+same purpose. When actually annotating images the user can select the
+terms from the 'my terms' list.
+
+To populate the my term list, we provide simple string searching
+possibilities augmented with graph visualizations of ontologies (like
+the ontology viewer [TODO: add reference]) to better understand the
+context of the found classes and to find even better matches.
 
 %------------------------------------------------------------------------------
 %	Annotation for Microscopes
@@ -21,14 +49,18 @@ database that uses semantic keywords to annotate images.
 \section{Annotation for Microscopes}
 
 In my research I have explored how we can augment the data we have on
-the creation on the images in Cyttron\index{Cyttron database}. During
+the creation of the images in Cyttron\index{Cyttron database}. During
 the
 acquisition\index{Acquisition|see{Image,~Acquisition}}\index{Image!Acquisition}
 of images, metadata\index{Metadata} needs to be gathered and
 translated into a common integrated schema\index{Schema}. The
 microscope\index{Microscope} that was used for the acquisition plays
 an important role when trying to understand the meaning of the image
-data.
+data. The imaging ontology was used in the Cyttron database to
+integrate the images. Because this ontology was introduced later,
+there was legacy data that was described using conventional relational
+database tables. We will describe how we migrated the old data to the
+new imaging ontology and how new data is now entered into the system.
 
 %-----------------------------------
 %	Annotating old data
