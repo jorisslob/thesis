@@ -10,7 +10,6 @@ function search {
 	echo -e "$1 \e[32mfound\e[0m in the Thesis"
     else
 	echo -e "$1 \e[31mnot found\e[0m in the Thesis."
-	exit 1
     fi
 }
 
@@ -31,7 +30,6 @@ words=`pdftotext Thesis.pdf - | wc -w`
 if [ $words -gt 100000 ]
 then
     echo "$words words is \e[31mtoo much\e[0m, needs to be less than 100000."
-    exit 1
 else
     echo -e "$words words is \e[32mgood\e[0m"
 fi
