@@ -12,12 +12,76 @@
 
 \section{Imaging Ontology}
 
-The imaging
+The microscopy lab at Leiden University both contains commercial
+standardized microscopes and specialized custom built
+microscopes. Experimental biologists need the flexibility to customize
+their equipment to find new ways to test their hypotheses. The images
+that were acquired are often sent to image analysts to gain statistics
+from their measurements. The image analysis often requires a good
+understanding of the exact methods by which the images were
+acquired. Moreover, when sharing the data after publication, it is
+important to have correct provenance information.
+
+A tried solution has been the creation of imaging ontologies. These
+ontologies were mostly created by single labs which focus on their
+particular use-cases. Although most of the labs take care to abstract
+and broaden the scope of their particular ontology, this model will
+not scale. In practice any additions that an outside lab wants to make
+to the ontology will be reviewed with the goals of the original lab in
+mind.
+
+We propose an client-server architecture for our imaging ontology. In
+this architecture, there will be a central ontology, called the master
+ontology, that holds the biggest subset of statements that all the
+labs can agree on. Every lab will have their own local imaging
+ontology that extends the master ontology.
+
+Local ontologies will be placed inside their own local namespace. This
+ensures that no name clashes will occur between different local
+ontologies. Images are always annotated according to a local
+ontology. When an image is shared, the local classes are transformed
+into their most specific master ontology parent class. This allows for
+the most semantically relevant information to be shared, while keeping
+any secret microscope information hidden.
+
+The extension of the local ontologies will be driven by a user
+interface that limits the addition of rules that are consistent with
+the current master and local ontology. Statements from all the local
+ontologies are aggregated and inspected by domain and ontology experts
+who will update the master ontology.
+
+The update process proceeds along the following steps:
+\begin{itemize}
+  \item A pattern is observed from local ontologies
+  \item A domain expert describes the changes that have to be made
+  \item An ontology expert constructs the rules to transform the ontologies
+  \item The transformation is tested on the master and local ontologies and validated by reasoners
+  \item Any validation errors are resolved by the ontology expert or the change is postponed until consensus is reached
+  \item The validated changes are put into place
+\end{itemize}
+
+The technique used here is best described by the software pattern
+called the observer pattern. Using the terminology of the observer
+pattern, the master ontology is the subject and the local ontologies
+are observers. The local ontologies are notified when the master
+ontology requires local changes.
+
+The transformations on the master and local ontologies are sent using
+SPARQL\index{SPARQL} 1.1 constructs. In this version of SPARQL,
+inserts and deletions are possible. In our initial setup the local
+ontologies are located on the same system as the master ontology, but
+nothing in this architecture requires the local ontology to be on the
+same system.
+
+To start this updating process we have to construct a reasonable first
+master version of the imaging ontology. The imaging
 ontology\index{Imaging~ontology|see{Ontology,~Imaging}}\index{Ontology!Imaging|textbf}
 describes imaging equipment\index{Imaging equipment} and their related
 modalities\index{Modality}. It builds on PROV\index{PROV} and includes
 semantics\index{Semantics} to facilitate reasoning\index{Reasoning}
 over microscope types.
+
+
 
 %------------------------------------------------------------------------------
 %	Staging Ontology
@@ -53,7 +117,17 @@ following staging systems:
 \end{itemize}
 
 All these stages are defined in the Staging
-Ontology\index{Staging~Ontology|see{Ontology,~Staging}}\index{Ontology!Staging|textbf}.
+Ontology\index{Staging~Ontology|see{Ontology,~Staging}}\index{Ontology!Staging|textbf}. Although
+time has been modelled in the past in OWL, the main domain was regular
+date and clock time. In the biological domain, we see other patterns
+to describe the temporal state of living organisms. In embryology
+staging schemes are used to describe the development of a
+subject. These staging schemes usually rely on visual characteristics
+of the subject to determine the progression along the maturation
+process. To capture this sense of time, we developed the staging
+ontology, which combines several staging schemes together, expressed
+in OWL and quantifies them using properties and creates parallels
+using relations.
 
 
 %------------------------------------------------------------------------------
@@ -65,4 +139,10 @@ Ontology\index{Staging~Ontology|see{Ontology,~Staging}}\index{Ontology!Staging|t
 The Biological Relative Position
 Ontology\index{Biological~Relative~Position~Ontology|see{Ontology,~Biological~Relative~Position}}\index{Ontology!Biological~Relative~Position|textbf}
 is an ontology\index{Ontology} that describes positions between
-entities.
+entities. These spatial relations have been described in the [TODO:
+  look up reference]. We used this ontology and show that it can be
+used to characterize and reason over spatial data. In our use case we
+made use of TDR-3D to create 3D models from microscopy images. These
+models are then parsed and automatically converted into a logical
+spatial model. This model can then be used for validation and
+querying.

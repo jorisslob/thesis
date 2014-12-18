@@ -37,7 +37,7 @@ fi
 # Thesis writing marathon addition!
 # At the start of the marathon I had 3895 words
 # This will keep track of the words written during this marathon
-echo "$(($words-3895)) words were written during the marathon"
+echo "$(($words-4703)) words were written during the marathon"
 
 # Article 16.1: The dissertation should contain a title page stating
 # the given names and family name of the author as registered at the
@@ -83,3 +83,22 @@ search "Media Technology"
 search "Zest Software"
 search "RMPI"
 search "TOPdesk"
+
+############################
+# Thesis scientific content 
+############################
+
+echo
+echo "Scientific content"
+echo
+
+search "microscope"
+search "OWL"
+search "server"
+search "client"
+search "spatial"
+search "temporal"
+search "user interface"
+search "SPARQL"
+search "observer pattern"
+search "namespace"
